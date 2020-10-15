@@ -104,7 +104,7 @@ class RNN(nn.Module):
         return output
 
 
-class CRNN(nn.Module):
+class RCNN(nn.Module):
     """ CRNN for HTR """
     def __init__(self, imheight, feat_extractor, nc, n_conv_layers, n_conv_out, conv, batch_norm,
                  max_pool, n_r_layers, n_r_input, n_hidden, n_out, bidirectional=True, dropout=0.0):
@@ -138,7 +138,7 @@ if __name__ == "__main__":
     x = torch.randn(8, 1, 64, 800)  # nSamples, nChannels, Height, Width
     print('x', x.shape)
 
-    fullrcnn = CRNN(imheight=params.imgH,
+    fullrcnn = RCNN(imheight=params.imgH,
                     nc=params.NC,
                     n_conv_layers=params.N_CONV_LAYERS,
                     n_conv_out=params.N_CONV_OUT,

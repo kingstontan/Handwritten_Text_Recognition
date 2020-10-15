@@ -83,10 +83,11 @@ if __name__ == "__main__":
     # print(MODEL)
     # torch.save(MODEL, '/home/loisonv/Text_Recognition/trained_networks/ICFHR2014_model_imgH32.pth')
 
-    MODEL = torch.load('/home/loisonv/Text_Recognition/trained_networks/ICFHR2014_model.pth')
+    MODEL = torch.load('trained_networks/ICFHR2014_model_imgH64.pth')
     if params.cuda and torch.cuda.is_available():
         MODEL = MODEL.cuda()
-    DATA_LOC = '/home/loisonv/Text_Recognition/images/table/'
+
+    DATA_LOC = 'images/'
 
     predict(MODEL, DATA_LOC, imgH=64, imgW=800)
 

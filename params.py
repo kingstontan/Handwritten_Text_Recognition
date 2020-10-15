@@ -46,7 +46,7 @@ class BaseOptions():
         parser.add_argument('--weights_init', type=bool, default=True)
         parser.add_argument('--pretrained', type=str, default='')
         parser.add_argument('--save', type=bool, default=True, help='Whether to save the trained network')
-        parser.add_argument('--save_model_path', type=str, default='/media/vn_nguyen/hdd/hux/Results/',
+        parser.add_argument('--save_model_path', type=str, default='testdir',
                             help="Where to save the network after training")
         # PARAMETERS FOR PLOT
         parser.add_argument('--previous_epochs', type=int, default=0)
@@ -131,7 +131,8 @@ class BaseOptions():
         opt.__setattr__('cdict', cdict)
         opt.__setattr__('icdict', icdict)
         # Add location to save trained network
-        log_dir = opt.__getattribute__('save_model_path') + self.time
+        #log_dir = opt.__getattribute__('save_model_path') + self.time
+        log_dir = opt.__getattribute__('save_model_path')
         if not os.path.exists(log_dir):
             os.mkdir(log_dir)
         opt.__setattr__('log_dir', log_dir)
